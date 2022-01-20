@@ -43,3 +43,14 @@ Hangman.prototype.gameStatus = function() {
     }
     return this.status
 }
+
+// Gives a status message
+Hangman.prototype.statusMessage = function() {
+    let msg = "Great work! You guessed the word."
+    if (this.status === "playing") {
+        msg = `Guesses left: ${this.remainingGuesses}.`
+    } else if (this.status === "failed") {
+        msg = `Nice try! The word was ${this.word.join("")}.`
+    }
+    return msg
+}
