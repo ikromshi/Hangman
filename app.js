@@ -13,4 +13,8 @@ window.addEventListener("keypress", function(e) {
 
     puzzleEl.textContent = inst1.puzzle()
     guessesEl.textContent = inst1.remainingGuesses
+
+    // Checking for the status
+    const status = inst1.gameStatus()
+    console.log(status)
 })
