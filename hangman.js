@@ -15,7 +15,7 @@ Hangman.prototype.puzzle = function() {
         } else {
             this.guessMatch += "*"
         }})
-    return this.guessMatch
+        return this.guessMatch
 }
 
 // Enables user to make a guess (if correct fine, if not chances-1)
@@ -27,13 +27,3 @@ Hangman.prototype.makeGuess = function (guess) {
     if (!this.word.includes(guess)) {this.remainingGuesses -= 1}
 }
 
-const inst1 = new Hangman("Cat", 2)
-
-
-// Sets up the event listener so user can guess from the webpage
-window.addEventListener("keypress", function(e) {
-    const key = String.fromCharCode(e.charCode)
-    inst1.makeGuess(key)
-    console.log(inst1.guessMatch)
-    console.log(inst1.remainingGuesses)
-})
