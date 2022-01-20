@@ -13,9 +13,9 @@ if (inst1.gameStatus() === "playing") {
         inst1.makeGuess(key)
 
         // Checking for the status
-        const status = inst1.gameStatus()
-        console.log(status)
+        inst1.gameStatus()
 
+        // Giving a status message
         puzzleEl.textContent = inst1.puzzle()
         guessesEl.textContent = inst1.statusMessage()
 })}
