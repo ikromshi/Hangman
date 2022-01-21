@@ -21,33 +21,24 @@ if (inst1.gameStatus() === "playing") {
 })}
 
 
-// Making an HTTP request
-const request = new XMLHttpRequest() 
-
-request.addEventListener("readystatechange", (e) => {
-    if (e.target.readyState === 4 && e.target.status === 200) {
-        const data = JSON.parse(e.target.responseText)
-        console.log(data)
-    } else if (e.target.readyState === 4) {
-        console.log("An error has occured")
-    }
+getPuzzle((error, puzzle) => {
+    if (error) {console.log(`Error ${error}`)}
+    else {console.log(puzzle)}
 })
-request.open("GET", "http://puzzle.mead.io/puzzle")
-request.send()
 
 
-// Using restcountries.eu
-const findCountry = new XMLHttpRequest()
-findCountry.open("GET", "http://api.countrylayer.com/v2/all?access_key=920920f8f6a0aefd84f8ededde259eb9")
-findCountry.send()
+// // Using restcountries.eu
+// const findCountry = new XMLHttpRequest()
+// findCountry.open("GET", "http://api.countrylayer.com/v2/all?access_key=920920f8f6a0aefd84f8ededde259eb9")
+// findCountry.send()
 
-const countryCode = "MX"
+// const countryCode = "MX"
 
-findCountry.addEventListener("readystatechange", (e) => {
-    if (e.target.readyState === 4 && e.target.status === 200) {
-        console.log(e)
-        const data = JSON.parse(e.target.responseText)
-        const country = data.find((country) => country.alpha2Code === countryCode)
-        console.log(country.name)
-    }
-})
+// findCountry.addEventListener("readystatechange", (e) => {
+//     if (e.target.readyState === 4 && e.target.status === 200) {
+//         console.log(e)
+//         const data = JSON.parse(e.target.responseText)
+//         const country = data.find((country) => country.alpha2Code === countryCode)
+//         console.log(country.name)
+//     }
+// })

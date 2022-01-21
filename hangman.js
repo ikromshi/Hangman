@@ -8,7 +8,7 @@ class Hangman {
         this.guessedLetters = []
     }
     
-    // Decided if the guess is correct or not (add the letter if yes, asterisk otherwise)
+    // Decides if the guess is correct or not (add the letter if yes, asterisk otherwise)
     puzzle() {
         this.guessMatch = ""
     
