@@ -8,7 +8,7 @@ puzzleEl.textContent = inst1.puzzle()
 guessesEl.textContent = inst1.statusMessage()
 
 if (inst1.gameStatus() === "playing") {
-    window.addEventListener("keypress", function(e) {
+    window.addEventListener("keypress", (e) => {
         const key = String.fromCharCode(e.charCode)
         inst1.makeGuess(key)
 
@@ -19,3 +19,19 @@ if (inst1.gameStatus() === "playing") {
         puzzleEl.textContent = inst1.puzzle()
         guessesEl.textContent = inst1.statusMessage()
 })}
+
+
+// Making an HTTP request
+const request = new XMLHttpRequest() 
+
+request.addEventListener("readystatechange", (e) => {
+    if (e.target.readyState === 4 && e.target.status === 200) {
+        const data = JSON.parse(e.target.responseText)
+        console.log(data)
+    } else if (e.target.readyState === 4) {
+        console.log("An error has occured")
+    }
+})
+
+request.open("GET", "http://puzzle.mead.io/puzzle")
+request.send()
