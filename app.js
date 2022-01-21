@@ -32,6 +32,22 @@ request.addEventListener("readystatechange", (e) => {
         console.log("An error has occured")
     }
 })
-
 request.open("GET", "http://puzzle.mead.io/puzzle")
 request.send()
+
+
+// Using restcountries.eu
+const findCountry = new XMLHttpRequest()
+findCountry.open("GET", "http://api.countrylayer.com/v2/all?access_key=920920f8f6a0aefd84f8ededde259eb9")
+findCountry.send()
+
+const countryCode = "MX"
+
+findCountry.addEventListener("readystatechange", (e) => {
+    if (e.target.readyState === 4 && e.target.status === 200) {
+        console.log(e)
+        const data = JSON.parse(e.target.responseText)
+        const country = data.find((country) => country.alpha2Code === countryCode)
+        console.log(country.name)
+    }
+})
