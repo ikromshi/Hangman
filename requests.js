@@ -6,7 +6,19 @@ const getPuzzle = (wordCount) => {
 }
 
 
-const getCountry = (countryCode) => new Promise((resolve, reject) => {
+const getCountry = (countryCode) => {
+    return fetch ("http://api.countrylayer.com/v2/all?access_key=920920f8f6a0aefd84f8ededde259eb9").then(promise => {
+        if (!promise.ok) {throw Error(promise.statusText)}
+        const data = promise.json()
+        const country = data.find(country => country.alpha2Code === countryCode)
+        return country
+    })
+}
+
+
+
+
+const getCountry1 = (countryCode) => new Promise((resolve, reject) => {
     // Using restcountries.eu
     const findCountry = new XMLHttpRequest()
 

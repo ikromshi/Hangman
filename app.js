@@ -28,11 +28,11 @@ getPuzzle("3").then((puzzle) => {
 }) 
 
 
-// getCountry("US").then((country) => {
-//     console.log(country.name)
-// }, (error) => {
-//     console.log(`Error: ${error}`)
-// })
+getCountry("US").then((country) => {
+    console.log(country.name)
+}).catch(error => {
+    console.log(error)
+})
 
 
 // // USING FETCH API (takes 2 arguments, returns a promise)
