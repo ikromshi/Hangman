@@ -21,13 +21,15 @@ if (inst1.gameStatus() === "playing") {
 })}
 
 
-getPuzzle("3", (error, puzzle) => {
-    if (error) {console.log(`Error ${error}`)}
-    else {console.log(puzzle)}
+getPuzzle("3").then((puzzle) => {
+    console.log(puzzle)
+}, (error) => {
+    console.log(`Error: ${error}`)
 })
 
 
-getCountry("US", (error, country) => {
-    if (error) {console.log(error)}
-    else {console.log(country.name)}
+getCountry("US").then((country) => {
+    console.log(country.name)
+}, (error) => {
+    console.log(`Error: ${error}`)
 })
