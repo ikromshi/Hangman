@@ -28,7 +28,7 @@ getPuzzle("3").then((puzzle) => {
 }) 
 
 
-getCountry("US").then((country) => {
+getCountry("UZ").then((country) => {
     console.log(country.name)
 }).catch(error => {
     console.log(error)
