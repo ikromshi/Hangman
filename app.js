@@ -23,13 +23,25 @@ if (inst1.gameStatus() === "playing") {
 
 getPuzzle("3").then((puzzle) => {
     console.log(puzzle)
-}, (error) => {
-    console.log(`Error: ${error}`)
-})
+}).catch(error => {
+    console.log(error)
+}) 
 
 
-getCountry("US").then((country) => {
-    console.log(country.name)
-}, (error) => {
-    console.log(`Error: ${error}`)
-})
+// getCountry("US").then((country) => {
+//     console.log(country.name)
+// }, (error) => {
+//     console.log(`Error: ${error}`)
+// })
+
+
+// // USING FETCH API (takes 2 arguments, returns a promise)
+// fetch("http://puzzle.mead.io/puzzle", {}).then(promise => {
+//     if (!promise.ok) {throw Error(promise.statusText)}
+//     return promise.json()
+
+// }).then(data => {
+//     console.log(data.puzzle)
+// }).catch(reject => {
+//     console.log(reject)
+// })
