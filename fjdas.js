@@ -1,3 +1,4 @@
+
 class Hangman {
     // Sets up the main part of the game (parameters --> Original word, Num of guesses)
     constructor(word, remainingGuesses) {
@@ -9,7 +10,7 @@ class Hangman {
 
     // Checks status
     calculateStatus() {
-        const finished = this.word.every(letter => this.guessedLetters.includes(letter) || letter === " ") 
+        const finished = this.word.every(letter => this.guessedLetters.includes(letter) || letter === " ") // Change
         if (this.remainingGuesses === 0) {this.status = "failed"}
         else if (finished) {this.status = "finished"}
         else {this.status = "playing"}
@@ -40,13 +41,13 @@ class Hangman {
     // Enables user to make a guess (if correct fine, if not chances-1)
     makeGuess(guess) {
         guess = guess.toLowerCase()
-        const isUnique = !this.guessedLetters.includes(guess) && this.word.includes(guess)
+        const isUnique = !this.guessedLetters.includes(guess)
         const isBadGuess = !this.word.includes(guess)
 
         if (this.status !== "playing") {return}
         if (isUnique) {this.guessedLetters.push(guess)}
-        if (isBadGuess) {this.remainingGuesses--}
+        if (isUnique && isBadGuess) {this.remainingGuesses--}
 
-        this.calculateStatus() 
+        this.calculateStatus() //Change2
     }
 }

@@ -1,55 +1,29 @@
 // Sets up the event listener so user can guess from the webpage
-
-const inst1 = new Hangman("Cat Food", 2)
 const puzzleEl = document.querySelector("#puzzle")
 const guessesEl = document.querySelector("#guesses")
-
-puzzleEl.textContent = inst1.puzzle()
-guessesEl.textContent = inst1.statusMessage()
-
-if (inst1.gameStatus() === "playing") {
-    window.addEventListener("keypress", (e) => {
-        const key = String.fromCharCode(e.charCode)
-        inst1.makeGuess(key)
-
-        // Checking for the status
-        inst1.gameStatus()
-
-        // Giving a status message
-        puzzleEl.textContent = inst1.puzzle()
-        guessesEl.textContent = inst1.statusMessage()
-})}
+let game
 
 
-// Getting the puzzle word from fetch API
-getPuzzle("3").then((puzzle) => {
-    console.log(puzzle)
-}).catch(error => {
-    console.log(error)
-}) 
+window.addEventListener("keypress", (e) => {
+    const guess = String.fromCharCode(e.charCode)
+    game.makeGuess(guess)
+    render()
+})
 
 
-// Getting the country object from fetch API
-getCountry("MX").then(data => {
-    console.log(data.name)
-}).catch(error => {
-    console.log(error)
-}) 
+const render = () => {
+    puzzleEl.textContent = game.puzzle()
+    guessesEl.textContent = game.statusMessage()
+}
 
 
-// Getting the country the user is in by integrating the two API's in request.js
-getCurrentCountry().then(country => {
-    console.log(country.name)
-}).catch(error => 
-    console.log(error))
+const startGame = async () => {
+    const puzzle = await getPuzzle("2")
+    game = new Hangman(puzzle, 45)
+    render()
+}
 
+document.querySelector("#reset").addEventListener("click", startGame)
 
+startGame()
 
-// // Integrating two fetch methods using Promise Chaining
-// getLocation().then(data => {
-//     return getCountry(data.country)
-// }).then(country => {
-//     console.log(country.name)
-// }).catch(error => {
-//     console.log(error)
-// })

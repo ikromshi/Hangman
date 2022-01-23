@@ -1,0 +1,13 @@
+// Getting the country object from fetch API
+getCountry("MX").then(data => {
+    console.log(data.name)
+}).catch(error => {
+    console.log(error)
+}) 
+
+
+// Getting the country the user is in by integrating the two API's in request.js
+getCurrentCountry().then(country => {
+    console.log(country.name)
+}).catch(error => 
+    console.log(error))
