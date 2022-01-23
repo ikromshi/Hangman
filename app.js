@@ -30,18 +30,26 @@ getPuzzle("3").then((puzzle) => {
 
 
 // Getting the country object from fetch API
-getCountry("UZ").then((country) => {
-    console.log(country.name)
+getCountry("MX").then(data => {
+    console.log(data.name)
 }).catch(error => {
     console.log(error)
-})
+}) 
 
 
-// Integrating two fetch methods using Promise Chaining
-getLocation().then(data => {
-    return getCountry(data.country)
-}).then(country => {
+// Getting the country the user is in by integrating the two API's in request.js
+getCurrentCountry().then(country => {
     console.log(country.name)
-}).catch(error => {
-    console.log(error)
-})
+}).catch(error => 
+    console.log(error))
+
+
+
+// // Integrating two fetch methods using Promise Chaining
+// getLocation().then(data => {
+//     return getCountry(data.country)
+// }).then(country => {
+//     console.log(country.name)
+// }).catch(error => {
+//     console.log(error)
+// })
