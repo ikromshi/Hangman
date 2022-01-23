@@ -35,3 +35,13 @@ getCountry("UZ").then((country) => {
 }).catch(error => {
     console.log(error)
 })
+
+
+// Integrating two fetch methods using Promise Chaining
+getLocation().then(data => {
+    return getCountry(data.country)
+}).then(country => {
+    console.log(country.name)
+}).catch(error => {
+    console.log(error)
+})

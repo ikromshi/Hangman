@@ -17,3 +17,12 @@ const getCountry = (countryCode) => {
         return data.find(country => country.alpha2Code === countryCode)
     })
 }
+
+
+// Using the fetch API to return the user's data depending on their IP adress
+const getLocation = () => {
+    return fetch("http://ipinfo.io/json?token=85bf991c24ca2c").then(promise => {
+        if (!promise.ok) {throw Error(promise.statusText)}
+        return promise.json()
+    })
+}
