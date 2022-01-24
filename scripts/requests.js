@@ -1,6 +1,6 @@
 // Using the fetch API to return a puzzle word 
 const getPuzzle = async (wordCount) => {
-    const promise = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+    const promise = await fetch(`https://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
     
     if (!promise.ok) {throw Error(promise.statusText)}
     const data = await promise.json()
