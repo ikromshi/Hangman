@@ -1,5 +1,5 @@
 import Hangman from "./hangman.js"
-import getPuzzle from "requests.js"
+import getPuzzle from "./requests.js"
 
 // Sets up the event listener so user can guess from the webpage
 const puzzleEl = document.querySelector("#puzzle")
