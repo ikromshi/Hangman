@@ -31,3 +31,5 @@ const getLocation = async () => {
     if (!promise.ok) {throw Error(promise.statusText)}
     return await promise.json()
 }
+
+export {getPuzzle as default}
